@@ -24,7 +24,7 @@ body {
   background: var(--bg);
   color: var(--fg-strong);
   font-family: var(--font);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.6;
   font-variant-ligatures: none;
@@ -108,7 +108,7 @@ kbd {
   z-index: 100;
   background: var(--fg);
   color: #000;
-  font: 700 10px/1 var(--font);
+  font: 700 11px/1 var(--font);
   letter-spacing: 0.08em;
   padding: 10px 14px;
 }
@@ -121,7 +121,7 @@ kbd {
 .section {
   border-top: 1px solid var(--line-grid);
   padding: 64px 0;
-  scroll-margin-top: 47px;
+  scroll-margin-top: 53px;
 }
 
 .section--tight {
@@ -130,7 +130,7 @@ kbd {
 
 .eyebrow {
   font-weight: 700;
-  font-size: 8.5px;
+  font-size: 9.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--fg-mid);
@@ -153,7 +153,7 @@ kbd {
 .section-lede {
   margin-top: 12px;
   max-width: 62ch;
-  font-size: 12px;
+  font-size: 13.5px;
   line-height: 1.75;
   color: var(--fg-mid);
 }

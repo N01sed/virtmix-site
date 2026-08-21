@@ -18,21 +18,22 @@
 .console__bar {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px 10px;
   padding: 10px 14px;
   border-bottom: 1px solid var(--line-grid);
 }
 
 .console__logo {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 0.06em;
   color: var(--fg);
 }
 
 .console__engine {
   font-weight: 500;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.14em;
   color: var(--fg-dim);
 }
@@ -46,7 +47,7 @@
   align-items: center;
   gap: 6px;
   font-weight: 600;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.1em;
   color: var(--sig-amber);
 }
@@ -109,7 +110,7 @@
   padding: 6px 10px 5px;
   background: var(--bg-zone);
   font-weight: 700;
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 0.18em;
   color: #999;
 }
@@ -132,7 +133,7 @@
   padding: 8px 14px;
   border-top: 1px solid var(--line-grid);
   font-weight: 600;
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 0.14em;
   color: var(--fg-dim);
 }
@@ -175,7 +176,7 @@
 
 .strip__name {
   font-weight: 700;
-  font-size: 10.5px;
+  font-size: 11.5px;
   line-height: 1.3;
   color: var(--fg);
 }
@@ -183,20 +184,20 @@
 .strip__type {
   margin-top: 3px;
   font-weight: 600;
-  font-size: 8px;
+  font-size: 8.5px;
   letter-spacing: 0.16em;
 }
 
 .strip__channel {
   display: flex;
-  min-height: 27px;
+  min-height: 29px;
   align-items: center;
   justify-content: center;
   gap: 5px;
   padding: 6px 0;
   border-bottom: 1px solid var(--line-inner);
   font-weight: 600;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.08em;
   color: var(--fg-strong);
 }
@@ -207,7 +208,7 @@
 
 /* Kept in place, empty: the meters of every strip must start on the same line. */
 .strip__channel--empty {
-  min-height: 27px;
+  min-height: 29px;
 }
 
 .strip__travel {
@@ -220,7 +221,7 @@
 .strip__value {
   text-align: center;
   font-weight: 600;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--fg);
   padding: 4px 0 10px;
 }
@@ -238,7 +239,7 @@
   display: flex;
   flex-direction: column;
   font-weight: 500;
-  font-size: 7.5px;
+  font-size: 8.5px;
   line-height: 1.7;
   letter-spacing: 0.08em;
   color: var(--fg-off);
@@ -310,7 +311,7 @@
 .btn {
   display: inline-block;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-align: center;
   padding: 5px 10px;
@@ -330,13 +331,13 @@
 }
 
 .btn--glyph {
-  font-size: 10px;
+  font-size: 11px;
   padding: 5px 9px;
   color: #777;
 }
 
 .btn--strip {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.14em;
   padding: 5px 0;
 }
@@ -355,7 +356,7 @@
 
 .send {
   font-weight: 700;
-  font-size: 8px;
+  font-size: 9px;
   text-align: center;
   padding: 3px 0;
   border: 1px solid transparent;
