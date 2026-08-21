@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>VirtMix — a virtual mixing desk for PipeWire on Linux</title>
+    <meta
+      name="description"
+      content="VirtMix is a virtual mixing desk for PipeWire: one strip per device or app, independent sends to five outputs and three virtual mics that Discord and OBS see as ordinary inputs. Free and open source, Rust, MIT."
+    />
+    <meta name="author" content="N01sed" />
+    <link rel="canonical" href="https://n01sed.github.io/virtmix-site/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VirtMix" />
+    <meta property="og:title" content="VirtMix — a virtual mixing desk for PipeWire" />
+    <meta
+      property="og:description"
+      content="One strip per device or app, independent sends to five outputs and three virtual mics. Discord and OBS see them as ordinary inputs."
+    />
+    <meta property="og:url" content="https://n01sed.github.io/virtmix-site/" />
+    <meta property="og:image" content="https://n01sed.github.io/virtmix-site/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="VirtMix — signal rack console on a black background" />
+    <meta property="og:locale" content="en" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VirtMix — a virtual mixing desk for PipeWire" />
+    <meta
+      name="twitter:description"
+      content="One strip per device or app, independent sends to five outputs and three virtual mics. Discord and OBS see them as ordinary inputs."
+    />
+    <meta name="twitter:image" content="https://n01sed.github.io/virtmix-site/og.png" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "VirtMix",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Audio mixer",
+        "operatingSystem": "Linux (PipeWire)",
+        "softwareVersion": "1.2.2",
+        "url": "https://n01sed.github.io/virtmix-site/",
+        "downloadUrl": "https://github.com/N01sed/virtmix",
+        "codeRepository": "https://github.com/N01sed/virtmix",
+        "programmingLanguage": "Rust",
+        "license": "https://opensource.org/licenses/MIT",
+        "isAccessibleForFree": true,
+        "description": "A virtual mixing desk for PipeWire: one strip per device or application, independent sends to five outputs and three virtual mics that other applications see as ordinary inputs.",
+        "author": { "@type": "Person", "name": "N01sed" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

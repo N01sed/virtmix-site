@@ -1,0 +1,41 @@
+:root {
+  /* Surfaces — pure OLED blacks */
+  --bg: #000000;
+  --bg-zone: #0a0a0a;
+  --bg-meter: #0c0c0c;
+  --bg-hover: #161616;
+
+  /* Hairlines */
+  --line-inner: #1a1a1a;
+  --line-grid: #1e1e1e;
+  --line-idle: #2a2a2a;
+  --line-rail: #2b2b2b;
+
+  /* Text */
+  --fg: #ffffff;
+  --fg-strong: #cccccc;
+  --fg-mid: #888888;
+  --fg-dim: #555555;
+  --fg-off: #3a3a3a;
+
+  /* Signal — one colour, one meaning */
+  --sig-green: #2ee86c;
+  --sig-cyan: #4dd7ff;
+  --sig-amber: #ffb020;
+  --sig-red: #ff4545;
+
+  --font: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --content: 1030px;
+
+  /* Motion — short, linear-ish, never soft */
+  --step: 120ms;
+  --step-slow: 200ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --step: 1ms;
+    --step-slow: 1ms;
+  }
+}

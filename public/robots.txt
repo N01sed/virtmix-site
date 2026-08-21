@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://n01sed.github.io/virtmix-site/sitemap.xml
