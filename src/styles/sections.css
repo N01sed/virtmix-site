@@ -679,6 +679,36 @@
   letter-spacing: 0.06em;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+/* Copied: full signal colour, black label — the same language as an armed
+   button in the console. */
+.btn.btn--copied,
+.btn.btn--copied:hover {
+  background: var(--sig-green);
+  border-color: var(--sig-green);
+  color: #000;
+}
+
+.btn.btn--lg[data-state='failed'],
+.btn.btn--lg[data-state='failed']:hover {
+  border-color: var(--sig-amber);
+  color: var(--sig-amber);
+}
+
+.actions__note {
+  margin-top: 12px;
+  max-width: 46ch;
+  font-size: 10.5px;
+  line-height: 1.7;
+  color: var(--fg-dim);
+}
+
 /* ── Tray card ────────────────────────────────────────────────────────── */
 
 .tray {

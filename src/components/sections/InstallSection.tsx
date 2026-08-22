@@ -1,5 +1,6 @@
 import { DISTROS, PREREQS } from '../../data/content';
 import { SITE } from '../../data/site';
+import { CopyButton } from '../CopyButton';
 import { Reveal } from '../Reveal';
 
 const COMMANDS = [
@@ -8,14 +9,16 @@ const COMMANDS = [
   './assets/install.sh',
 ] as const;
 
+const ONE_LINER = COMMANDS.join(' && ');
+
 export function InstallSection() {
   return (
     <section className="section" id="install" aria-labelledby="install-title">
       <div className="wrap">
         <Reveal className="section-head">
-          <p className="eyebrow eyebrow--green">06 · INSTALL</p>
+          <p className="eyebrow eyebrow--green">INSTALL</p>
           <h2 className="section-title" id="install-title">
-            One script, no root
+            Avaliable from APT
           </h2>
           <p className="section-lede">
             The installer checks what is missing, prints the apt or dnf line for your distribution,
@@ -45,6 +48,27 @@ export function InstallSection() {
                 <b>--purge</b> clears everything, settings included
               </span>
             </div>
+
+            <div className="actions">
+              <a
+                className="btn btn--primary btn--lg"
+                href={`${SITE.repo}/releases/latest`}
+                rel="noreferrer noopener"
+              >
+                DOWNLOAD LTS ↓
+              </a>
+              <CopyButton
+                className="btn btn--lg"
+                text={ONE_LINER}
+                label="INSTALL WITH SCRIPT"
+                copiedLabel="● COPIED — PASTE IN A TERMINAL"
+              />
+            </div>
+
+            <p className="actions__note">
+              The package page carries every format. The script clones the repository and runs the
+              installer — the three lines above, on one line.
+            </p>
           </Reveal>
 
           <Reveal className="split__text" step={1}>

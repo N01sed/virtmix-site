@@ -310,6 +310,8 @@
 
 .btn {
   display: inline-block;
+  /* Also worn by <button>, which inherits neither font nor cursor from the page. */
+  font-family: inherit;
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.08em;
@@ -322,6 +324,10 @@
     border-color var(--step) var(--ease),
     background-color var(--step) var(--ease),
     color var(--step) var(--ease);
+}
+
+button.btn {
+  cursor: pointer;
 }
 
 .btn--primary {
