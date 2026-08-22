@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # The APT repository is reassembled from the application's latest release on
+  # every run, so the site has to rebuild for a new version to reach apt users.
+  # Nightly keeps that automatic; "Run workflow" is there to not wait for it.
+  schedule:
+    - cron: "17 5 * * *"
 
 permissions:
   contents: read
@@ -30,6 +35,20 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+
+      # apt-ftparchive lives in apt-utils, which the runner image does not carry.
+      - name: APT repository tooling
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends apt-utils
+
+      # Skipped without a signing key, and never fatal: a site that cannot sign a
+      # package index is still a site worth publishing.
+      - name: APT repository
+        env:
+          APT_GPG_PRIVATE_KEY: ${{ secrets.APT_GPG_PRIVATE_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/apt-repo.sh dist
 
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:

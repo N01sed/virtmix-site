@@ -68,3 +68,45 @@ would become `/`.
 One caveat of project pages: crawlers only read `robots.txt` from the domain root, so the
 copy shipped here is inert until the site gets its own domain. Submit `sitemap.xml` directly
 if the page needs to be indexed sooner.
+
+## The APT repository
+
+The site serves the Debian repository behind `apt install virtmix`:
+
+| | |
+|---|---|
+| repository | `https://n01sed.github.io/virtmix-site/apt` |
+| signing key | `https://n01sed.github.io/virtmix-site/virtmix.asc` |
+
+[scripts/apt-repo.sh](scripts/apt-repo.sh) assembles it during the deploy: it reads the
+latest release of [N01sed/virtmix](https://github.com/N01sed/virtmix), downloads the
+`_amd64.deb` asset, builds `Packages` and a signed `Release`/`InRelease` with
+`apt-ftparchive`, and writes the tree into `dist/apt` alongside the site.
+
+**No package is ever committed here.** A `.deb` is several megabytes and a new one lands
+at every release; committing them would grow this repository forever. The cost of that
+choice: apt only sees a new version once the site rebuilds — hence the nightly `schedule`
+trigger in the workflow, and the "Run workflow" button when a fresh release should not
+wait for it. Only the latest version is served, so `apt install virtmix=1.2.2` cannot pin
+an older one.
+
+### The signing key
+
+apt refuses an unsigned repository, so the deploy needs a private key in the
+`APT_GPG_PRIVATE_KEY` secret. Without it the step logs a line and skips — the site still
+publishes, but `apt` will find nothing at `/apt`.
+
+The key is a repository-signing key, not a personal one, and it carries **no passphrase**:
+CI cannot type one.
+
+```sh
+gpg --batch --passphrase '' \
+    --quick-gen-key "VirtMix Repository <you@example.org>" rsa4096 sign never
+gpg --armor --export-secret-keys "VirtMix Repository" > virtmix-private.asc
+gh secret set APT_GPG_PRIVATE_KEY --repo N01sed/virtmix-site < virtmix-private.asc
+shred -u virtmix-private.asc
+```
+
+The public half is not committed: `apt-repo.sh` exports it from the private key at build
+time, so the key users trust and the key that signs cannot drift apart. Replacing the key
+means every user re-runs the two install commands — it is not a routine operation.
