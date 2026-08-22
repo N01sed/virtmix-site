@@ -15,7 +15,6 @@ export interface Strip {
   /** Base meter level, 0..1. `null` means the strip carries no meter. */
   level: number | null;
   muted?: boolean;
-  offline?: boolean;
   channel?: string;
   fx?: 'on' | 'off';
   sendsA?: readonly SendState[];
@@ -27,7 +26,7 @@ export interface Strip {
 export const STRIPS: readonly Strip[] = [
   {
     id: 'id14-in',
-    name: 'AUDIENT iD14',
+    name: 'AUDIENT iD14 Pro',
     type: 'HW INPUT',
     tone: 'green',
     group: 'sources',
@@ -37,7 +36,7 @@ export const STRIPS: readonly Strip[] = [
     level: 0.66,
     fx: 'on',
     sendsA: ['on', 'off', 'empty', 'empty', 'empty'],
-    sendsB: ['on', 'off', 'empty'],
+    sendsB: ['on'],
   },
   {
     id: 'discord',
@@ -49,7 +48,7 @@ export const STRIPS: readonly Strip[] = [
     value: '-12.0 dB',
     level: 0.42,
     sendsA: ['off', 'on', 'empty', 'empty', 'empty'],
-    sendsB: ['on', 'off', 'empty'],
+    sendsB: ['on'],
   },
   {
     id: 'music',
@@ -61,7 +60,7 @@ export const STRIPS: readonly Strip[] = [
     value: '-6.0 dB',
     level: 0.58,
     sendsA: ['on', 'on', 'empty', 'empty', 'empty'],
-    sendsB: ['off', 'off', 'empty'],
+    sendsB: ['off'],
   },
   {
     id: 'system-media',
@@ -74,13 +73,13 @@ export const STRIPS: readonly Strip[] = [
     level: 0,
     muted: true,
     sendsA: ['on', 'off', 'empty', 'empty', 'empty'],
-    sendsB: ['off', 'off', 'empty'],
+    sendsB: ['off'],
   },
   {
     id: 'id14-out',
-    name: 'iD14 OUT',
+    name: 'Audient iD14 Pro',
     type: 'OUTPUT A1',
-    tone: 'green',
+    tone: 'cyan',
     group: 'rack',
     fader: 0.26,
     value: '-4.5 dB',
@@ -88,21 +87,9 @@ export const STRIPS: readonly Strip[] = [
     note: ['MASTER FADER', 'NO SENDS'],
   },
   {
-    id: 'wh1000',
-    name: 'WH-1000XM5',
-    type: 'OUTPUT A2 — OFFLINE',
-    tone: 'amber',
-    group: 'rack',
-    fader: 0.44,
-    value: '-8.0 dB',
-    level: null,
-    offline: true,
-    note: ['SETTINGS KEPT', 'AWAITING DEVICE'],
-  },
-  {
     id: 'vmic',
     name: 'VIRTUAL MIC',
-    type: 'B1 → DISCORD/OBS',
+    type: 'VIRTUAL MIC',
     tone: 'cyan',
     group: 'rack',
     channel: 'STEREO',

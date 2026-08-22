@@ -6,12 +6,12 @@ export function LimitsSection() {
     <section className="section" id="limits" aria-labelledby="limits-title">
       <div className="wrap">
         <Reveal className="section-head">
-          <p className="eyebrow eyebrow--amber">07 · LIMITS</p>
+          <p className="eyebrow eyebrow--amber">LIMITS</p>
           <h2 className="section-title" id="limits-title">
-            What it does not do
+            What you cannot do
           </h2>
           <p className="section-lede">
-            Known and assumed. Each of these is a trade, not an oversight — and the reason is worth
+            Each of these is a trade, not an oversight — and the reason is worth
             more than the promise.
           </p>
         </Reveal>

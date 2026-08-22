@@ -1,16 +1,17 @@
 import { Reveal } from '../Reveal';
 
 const CONFIG = `{
-  "outputs":  { "A1": "alsa_output.usb-Audient_iD14",
-                "A2": "bluez_output.WH_1000XM5" },
-  "vmics":    { "B1": "micro-virtuel" },
+  "outputs": ["alsa_output.usb-Audient_iD14", "bluez_output.WH_1000XM5"],
+  "inputs":  ["alsa_input.usb-Audient_iD14"],
+  "mics":    ["micro-virtuel"],
   "strips": [
-    { "name":  "AUDIENT iD14",
+    { "node":    "alsa_input.usb-Audient_iD14",
+      "source":  true,
       "channel": 2,
       "volume":  0.67,
-      "mute":    false,
-      "sends":   { "A": ["A1"], "B": ["B1"] },
-      "fx":      { "gate": true, "comp": true } }
+      "muted":   false,
+      "sends":   ["A1", "B1"],
+      "gate":    { "enabled": true } }
   ]
 }`;
 
@@ -19,12 +20,12 @@ export function ConfigSection() {
     <section className="section" id="config" aria-labelledby="config-title">
       <div className="wrap">
         <Reveal className="section-head">
-          <p className="eyebrow">05 · STATE</p>
+          <p className="eyebrow">STATE</p>
           <h2 className="section-title" id="config-title">
-            Nothing autosaves
+            Nothing autosaves, but virtmix remembers 
           </h2>
           <p className="section-lede">
-            Choosing an output, importing a profile, creating a bus — none of it touches the disk.
+            Choosing an output, setting a level, creating a bus — none of it touches the disk.
             The amber ● UNSAVED marker stays lit until you press SAVE CONFIG. The whole desk then
             fits in one readable file, reapplied at the next start, wiring included.
           </p>
@@ -64,7 +65,7 @@ export function ConfigSection() {
               The tray menu: open console, save config with its unsaved marker, and close VirtMix.
               Meters and refreshes are suspended while the window is hidden; the routing stays live.
             </p>
-            <div className="tray" aria-hidden="true">
+            {/* <div className="tray" aria-hidden="true">
               <div className="tray__head">
                 <span className="tray__icon" aria-hidden="true">
                   V
@@ -85,7 +86,7 @@ export function ConfigSection() {
               <p className="tray__foot">
                 Meters &amp; refresh suspended while hidden. Routing stays live.
               </p>
-            </div>
+            </div> */}
           </Reveal>
         </div>
       </div>

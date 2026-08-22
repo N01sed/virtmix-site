@@ -7,7 +7,7 @@ export function MapperSection() {
     <section className="section" id="mapper" aria-labelledby="mapper-title">
       <div className="wrap split split--reverse">
         <Reveal className="split__text">
-          <p className="eyebrow eyebrow--amber">04 · BUSES</p>
+          <p className="eyebrow eyebrow--amber">BUSES</p>
           <h2 className="section-title" id="mapper-title">
             Which app plays on which bus
           </h2>
@@ -48,10 +48,6 @@ export function MapperSection() {
               </span>
             </div>
             <div className="panel__body">
-              <p className="panel__note">
-                Which app plays on which bus. One per row — apps not listed follow the system
-                default.
-              </p>
               <div className="matrix">
                 <span className="matrix__head">APP</span>
                 {MAPPER_BUSES.map((bus) => (

@@ -10,23 +10,23 @@ export interface Feature {
 export const FEATURES: readonly Feature[] = [
   {
     id: 'strips',
-    index: '01',
+    index: '',
     title: 'ONE STRIP PER SOURCE',
     tone: 'green',
-    body: 'Every hardware input, application and bus gets its own fader, its own mute and its own sends. A single strip can feed the audio interface, a Bluetooth headset and Discord at the same time.',
-    detail: 'A1..A5 · B1..B3',
+    body: 'Every declared hardware input, application and bus gets its own fader, its own mute and its own sends. A single strip can feed the audio interface, a Bluetooth headset and Discord at the same time.',
+    detail: 'A1..A5 · IN 1..3 · B',
   },
   {
     id: 'vmics',
-    index: '02',
-    title: 'VIRTUAL MICS APPS TRUST',
+    index: '',
+    title: 'ONE VIRTUAL MIC APPS TRUST',
     tone: 'cyan',
-    body: 'B1 to B3 are exposed as ordinary capture devices. B1 is named micro-virtuel and the name is frozen on purpose — applications remember it, so renaming it would cut them all off at once.',
-    detail: 'B1 = micro-virtuel',
+    body: 'There is exactly one, named micro-virtuel, and the name is frozen on purpose — applications remember it, so renaming it would cut them all off at once. It is the point of the project, not a device among others.',
+    detail: 'B = micro-virtuel',
   },
   {
     id: 'fx',
-    index: '03',
+    index: '',
     title: 'GATE, THEN COMPRESSOR',
     tone: 'cyan',
     body: 'The gate cuts the silence, the compressor levels what is left — in that order, adjusted live with no dropout. LADSPA swh-plugins, gate_1410 into sc4m_1916.',
@@ -34,7 +34,7 @@ export const FEATURES: readonly Feature[] = [
   },
   {
     id: 'buses',
-    index: '04',
+    index: '',
     title: 'BUSES AND A BUS MAPPER',
     tone: 'amber',
     body: 'Buses are real pw-loopback processes, rebuilt at start-up with their name, fader and sends. The Bus Mapper is a plain apps-by-bus matrix: Firefox on MUSIC, one choice per row.',
@@ -42,15 +42,15 @@ export const FEATURES: readonly Feature[] = [
   },
   {
     id: 'tray',
-    index: '05',
+    index: '',
     title: 'FOLDS INTO THE TRAY',
     tone: 'green',
-    body: 'Closing the window does not quit; the wiring stays live. Tucked away, VirtMix suspends its refreshes and meters — measured at 14% of one core open, 0.4% hidden.',
+    body: 'Closing the window does not quit; the wiring stays live. Tucked away, VirtMix suspends its refreshes and meters — measured at nearly no cost on the machine.',
     detail: '0.4% CPU hidden',
   },
   {
     id: 'single',
-    index: '06',
+    index: '',
     title: 'DRIVES PIPEWIRE, NEVER REPLACES IT',
     tone: 'green',
     body: 'No separate daemon, no sudo outside the installer, one instance only — launching VirtMix again brings the console back instead of opening a second one. Files written outside its own folder are all prefixed virtmix.',
@@ -105,8 +105,8 @@ export const LIMITS: readonly Limit[] = [
     body: 'A PipeWire link carries no volume of its own. A send is on or off; the level is the strip fader.',
   },
   {
-    title: 'NO METER ON A BLUETOOTH HEADSET MIC',
-    body: 'Reading it would force the HFP profile — mono, 16 kHz — on the whole headset. Not worth the trade.',
+    title: 'NO SOUND POSITIONING',
+    body: 'Since the fader is the only level control, there is no pan or balance. The stereo image is fixed by the source. This is gonna change in the future.',
   },
   {
     title: 'TWO OUTPUTS SHARE ONE CLOCK',
@@ -125,7 +125,7 @@ export interface Distro {
 }
 
 export const DISTROS: readonly Distro[] = [
-  { name: 'Debian / Ubuntu', command: 'apt install …', state: 'covered' },
+  { name: 'Debian / Ubuntu', command: 'apt-get install …', state: 'covered' },
   { name: 'Fedora', command: 'dnf install …', state: 'covered' },
   { name: 'Arch', command: 'listed, run it yourself', state: 'manual' },
   { name: 'Others', command: 'package table in the README', state: 'manual' },

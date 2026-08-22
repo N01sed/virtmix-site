@@ -7,7 +7,7 @@ export function FxSection() {
     <section className="section" id="fx" aria-labelledby="fx-title">
       <div className="wrap split">
         <Reveal className="split__text">
-          <p className="eyebrow eyebrow--cyan">03 · FX CHAIN</p>
+          <p className="eyebrow eyebrow--cyan">FX CHAIN</p>
           <h2 className="section-title" id="fx-title">
             Gate, then compressor
           </h2>

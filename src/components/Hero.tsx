@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="hero" id="top">
       <div className="wrap">
-        <p className="eyebrow eyebrow--green">LINUX · PIPEWIRE · v{SITE.version}</p>
+        {/* <p className="eyebrow eyebrow--green">LINUX · PIPEWIRE · v{SITE.version}</p> */}
 
         <h1 className="hero__title">
           <span className="hero__line">A MIXING DESK</span>{' '}
@@ -14,8 +14,8 @@ export function Hero() {
         </h1>
 
         <p className="hero__lede">
-          One strip per device or application. Independent sends to five outputs and three virtual
-          mics that Discord and OBS see as ordinary inputs. Voicemeeter's idea, built for Linux and
+          One strip per device or application. Sends to five outputs and one virtual
+          mic that applications see as an ordinary input. Voicemeeter's idea, built for Linux and
           driving PipeWire rather than replacing it.
         </p>
 

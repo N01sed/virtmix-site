@@ -6,7 +6,7 @@ export function RoutingSection() {
     <section className="section" id="routing" aria-labelledby="routing-title">
       <div className="wrap">
         <Reveal className="section-head">
-          <p className="eyebrow">02 · ROUTING</p>
+          <p className="eyebrow">ROUTING</p>
           <h2 className="section-title" id="routing-title">
             One source, as many destinations as you need
           </h2>
@@ -37,8 +37,8 @@ export function RoutingSection() {
               <em>outputs</em>
             </span>
             <span className="path__node path__node--cyan">
-              B1 – B3
-              <em>virtual mics</em>
+              B
+              <em>virtual mic</em>
             </span>
           </span>
         </Reveal>

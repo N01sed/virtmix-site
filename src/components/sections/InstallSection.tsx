@@ -18,7 +18,7 @@ export function InstallSection() {
         <Reveal className="section-head">
           <p className="eyebrow eyebrow--green">INSTALL</p>
           <h2 className="section-title" id="install-title">
-            Avaliable from APT
+            Easy installation
           </h2>
           <p className="section-lede">
             The installer checks what is missing, prints the apt or dnf line for your distribution,
@@ -50,24 +50,20 @@ export function InstallSection() {
             </div>
 
             <div className="actions">
-              <a
-                className="btn btn--primary btn--lg"
-                href={`${SITE.repo}/releases/latest`}
-                rel="noreferrer noopener"
-              >
-                DOWNLOAD LTS ↓
-              </a>
               <CopyButton
-                className="btn btn--lg"
+                className="btn btn--primary btn--lg"
                 text={ONE_LINER}
                 label="INSTALL WITH SCRIPT"
                 copiedLabel="● COPIED — PASTE IN A TERMINAL"
               />
+              <a className="btn btn--lg" href={SITE.repo} rel="noreferrer noopener">
+                VIEW SOURCE
+              </a>
             </div>
 
             <p className="actions__note">
-              The package page carries every format. The script clones the repository and runs the
-              installer — the three lines above, on one line.
+              No packaged download yet — the script clones the repository and compiles it, the
+              three lines above on one line.
             </p>
           </Reveal>
 

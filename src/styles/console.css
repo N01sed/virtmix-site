@@ -1,18 +1,15 @@
 /* ── The rack ─────────────────────────────────────────────────────────── */
 
+/* Six 146px strips, their hairline gaps and the 5px zone separator come to
+   891px with the frame — narrower than the text column, so the rack just
+   sits inside it. Below that width .console__scroll takes over and the rack
+   (pinned to its own content width by .console__rack) scrolls horizontally
+   instead of squeezing the strips. */
 .console {
   background: var(--bg);
   border: 1px solid var(--line-grid);
-}
-
-/* Seven 146px strips, their hairline gaps and the 5px zone separator come to
-   1038px with the frame — wider than the text column, so the rack reaches past
-   the wrapper's gutters rather than scrolling on a desktop screen. */
-@media (min-width: 1078px) {
-  .console {
-    width: 1038px;
-    margin: 0 -24px;
-  }
+  width: 891px;
+  max-width: 100%;
 }
 
 .console__bar {
@@ -87,7 +84,7 @@
 }
 
 .console__rack {
-  min-width: 1036px;
+  min-width: 889px;
 }
 
 .console__banners,
@@ -163,10 +160,6 @@
   background: var(--bg);
   display: flex;
   flex-direction: column;
-}
-
-.strip--offline {
-  opacity: 0.5;
 }
 
 .strip__head {

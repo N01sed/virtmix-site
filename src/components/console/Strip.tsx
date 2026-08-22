@@ -16,6 +16,10 @@ interface SendsProps {
 }
 
 function Sends({ prefix, states, tone }: SendsProps) {
+  // A single slot is the virtual mic — real VirtMix labels its one button "B",
+  // never "B1": there is only ever one, so numbering it would be a lie.
+  const label = (i: number) => (states.length > 1 ? `${prefix}${i + 1}` : prefix);
+
   return (
     <div className="strip__sends" style={{ gridTemplateColumns: `repeat(${states.length}, 1fr)` }}>
       {states.map((state, i) => (
@@ -25,7 +29,7 @@ function Sends({ prefix, states, tone }: SendsProps) {
           data-state={state}
           style={state === 'on' ? { background: tone, borderColor: tone } : undefined}
         >
-          {state === 'empty' ? '·' : `${prefix}${i + 1}`}
+          {state === 'empty' ? '·' : label(i)}
         </span>
       ))}
     </div>
@@ -42,7 +46,7 @@ export function Strip({ strip, index, active }: Props) {
   const tone = TONE[strip.tone];
 
   return (
-    <article className={`strip${strip.offline ? ' strip--offline' : ''}`}>
+    <article className="strip">
       <header className="strip__head">
         <p className="strip__name">{strip.name}</p>
         <p className="strip__type" style={{ color: tone }}>
@@ -62,7 +66,7 @@ export function Strip({ strip, index, active }: Props) {
 
       <div className="strip__travel">
         <Meter level={strip.level} seed={index * 1.7} active={active} />
-        <Fader position={strip.fader} tone={tone} dimmed={strip.offline ?? false} />
+        <Fader position={strip.fader} tone={tone} />
       </div>
 
       <p className="strip__value">{strip.value}</p>
