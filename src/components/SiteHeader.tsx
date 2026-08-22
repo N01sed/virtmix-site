@@ -1,13 +1,12 @@
 import { NAV, SITE } from '../data/site';
+import { Logo } from './Logo';
 
 export function SiteHeader() {
   return (
     <header className="site-head">
       <div className="wrap site-head__inner">
         <a className="site-head__brand" href="#top">
-          <span className="site-head__mark" aria-hidden="true">
-            V
-          </span>
+          <Logo className="site-head__mark" />
           VIRTMIX
         </a>
         <span className="site-head__version">v{SITE.version}</span>
