@@ -41,14 +41,14 @@ export const STRIPS: readonly Strip[] = [
   {
     id: 'discord',
     name: 'DISCORD',
-    type: 'APP',
-    tone: 'cyan',
-    group: 'sources',
+    type: 'BUS',
+    tone: 'amber',
+    group: 'rack',
     fader: 0.38,
     value: '-12.0 dB',
     level: 0.42,
     sendsA: ['off', 'on', 'empty', 'empty', 'empty'],
-    sendsB: ['on'],
+    sendsB: ['off'],
   },
   {
     id: 'music',

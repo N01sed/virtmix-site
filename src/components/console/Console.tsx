@@ -34,7 +34,7 @@ export function Console() {
       <div className="console__scroll">
         <div className="console__rack">
           <div className="console__banners">
-            <span className="console__banner" style={{ width: 293 }}>
+            <span className="console__banner" style={{ width: 146 }}>
               SOURCES
             </span>
             <span className="console__gap" />
