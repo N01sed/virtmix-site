@@ -36,6 +36,47 @@ function Sends({ prefix, states, tone }: SendsProps) {
   );
 }
 
+const PAN_POSITIONS = ['L', 'C', 'R'] as const;
+
+interface PanRowProps {
+  pan?: 'L' | 'C' | 'R' | undefined;
+  stereo?: boolean | undefined;
+  tone: string;
+}
+
+// Inputs get one row for stereo placement: L/C/R/ST while capturing a single
+// channel, or — once ST is engaged — a continuous two-handle slider instead,
+// since the strip now carries a real channel pair rather than a hard pan.
+function PanRow({ pan, stereo, tone }: PanRowProps) {
+  if (stereo) {
+    return (
+      <div className="strip__st" aria-hidden="true">
+        <div className="st-slider">
+          <div className="st-slider__rail" />
+          <span className="st-slider__handle" style={{ left: '20%' }} />
+          <span className="st-slider__handle" style={{ left: '80%' }} />
+        </div>
+        <span className="st-slider__label" style={{ color: tone }}>
+          ST
+        </span>
+      </div>
+    );
+  }
+
+  if (!pan) return null;
+
+  return (
+    <div className="strip__pan" aria-hidden="true">
+      {PAN_POSITIONS.map((p) => (
+        <span key={p} className="pan" data-active={p === pan} style={p === pan ? { background: tone, borderColor: tone } : undefined}>
+          {p}
+        </span>
+      ))}
+      <span className="pan pan--st">ST</span>
+    </div>
+  );
+}
+
 interface Props {
   strip: StripModel;
   index: number;
@@ -64,6 +105,8 @@ export function Strip({ strip, index, active }: Props) {
         ) : null}
       </div>
 
+      <PanRow pan={strip.pan} stereo={strip.stereo} tone={tone} />
+
       <div className="strip__travel">
         <Meter level={strip.level} seed={index * 1.7} active={active} />
         <Fader position={strip.fader} tone={tone} />
@@ -72,9 +115,21 @@ export function Strip({ strip, index, active }: Props) {
       <p className="strip__value">{strip.value}</p>
 
       <div className="strip__controls">
-        <span className={`btn btn--strip${strip.muted ? ' btn--muted' : ''}`}>
-          {strip.muted ? 'MUTED' : 'MUTE'}
-        </span>
+        <div className="strip__row">
+          <span className={`btn btn--strip${strip.muted ? ' btn--muted' : ''}`}>
+            {strip.muted ? 'MUTED' : 'MUTE'}
+          </span>
+
+          {strip.rec ? (
+            <span
+              className="btn btn--strip"
+              data-on={strip.rec === 'on'}
+              style={strip.rec === 'on' ? { background: 'var(--sig-red)', borderColor: 'var(--sig-red)', color: '#000' } : undefined}
+            >
+              {strip.rec === 'on' ? '● REC' : 'REC'}
+            </span>
+          ) : null}
+        </div>
 
         {strip.fx ? (
           <span

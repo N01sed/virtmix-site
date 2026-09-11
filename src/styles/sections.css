@@ -416,6 +416,7 @@
 
 .tag--cyan { background: var(--sig-cyan); }
 .tag--green { background: var(--sig-green); }
+.tag--amber { background: var(--sig-amber); }
 
 .drawer__title {
   font-weight: 700;
@@ -433,7 +434,7 @@
 
 .drawer__cols {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   background: var(--line-grid);
 }
@@ -458,6 +459,7 @@
 
 .drawer__state--green { color: var(--sig-green); }
 .drawer__state--cyan { color: var(--sig-cyan); }
+.drawer__state--amber { color: var(--sig-amber); }
 
 .param + .param {
   margin-top: 10px;
@@ -503,6 +505,61 @@
   margin-left: -4px;
   background: var(--bg);
   border: 2px solid var(--fg);
+}
+
+.xypad__wrap {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 6px;
+}
+
+.xypad__vaxis {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  color: var(--fg-dim);
+}
+
+.xypad {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid var(--line-rail);
+  background: var(--bg-meter);
+}
+
+.xypad__grid {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(var(--line-inner) 1px, transparent 1px) 0 50% / 100% 50% no-repeat,
+    linear-gradient(90deg, var(--line-inner) 1px, transparent 1px) 50% 0 / 50% 100% no-repeat;
+}
+
+.xypad__dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  border: 2px solid;
+  border-radius: 50%;
+}
+
+.xypad__axis {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  color: var(--fg-dim);
 }
 
 /* ── Settings panel and matrix ────────────────────────────────────────── */

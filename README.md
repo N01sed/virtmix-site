@@ -87,7 +87,7 @@ latest release of [N01sed/virtmix](https://github.com/N01sed/virtmix), downloads
 at every release; committing them would grow this repository forever. The cost of that
 choice: apt only sees a new version once the site rebuilds — hence the nightly `schedule`
 trigger in the workflow, and the "Run workflow" button when a fresh release should not
-wait for it. Only the latest version is served, so `apt install virtmix=1.2.2` cannot pin
+wait for it. Only the latest version is served, so `apt install virtmix=1.3.0` cannot pin
 an older one.
 
 ### The signing key

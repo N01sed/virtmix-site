@@ -37,7 +37,8 @@ export function ConsoleSection() {
           <p className="sr-only">
             A reproduction of the VirtMix console: six vertical strips — a hardware input, an
             application, two buses, an output and a virtual mic — each with a level meter, a
-            fader, a mute button and its grid of A and B sends.
+            fader, a mute button, a REC button and its grid of A and B sends. The hardware input
+            also carries a hard pan selector and an ST button for capturing a real stereo pair.
           </p>
           <Console />
         </Reveal>

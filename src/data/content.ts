@@ -27,10 +27,34 @@ export const FEATURES: readonly Feature[] = [
   {
     id: 'fx',
     index: '',
-    title: 'GATE, THEN COMPRESSOR',
+    title: 'GATE, COMPRESSOR, EQ',
     tone: 'cyan',
-    body: 'The gate cuts the silence, the compressor levels what is left — in that order, adjusted live with no dropout. LADSPA swh-plugins, gate_1410 into sc4m_1916.',
+    body: 'The gate cuts the silence, the compressor levels what is left, the EQ shapes the tone — in that order, adjusted live with no dropout. LADSPA swh-plugins, gate_1410 → sc4m_1916 → dj_eq_1901.',
     detail: 'optional · FX greys out without the package',
+  },
+  {
+    id: 'pan',
+    index: '',
+    title: 'HARD PAN ON EVERY SEND',
+    tone: 'green',
+    body: 'An input places its signal left, centre or right in a destination’s stereo field. Build a stereo image on the virtual mic from two mono sources instead of hearing everything centred.',
+    detail: 'L · C · R per input',
+  },
+  {
+    id: 'stereo',
+    index: '',
+    title: 'CAPTURES A REAL STEREO PAIR',
+    tone: 'cyan',
+    body: 'A source that exposes a true channel pair — a stereo line, XY mics — gets one button, ST, to grab both at once. Each channel then lands on its own continuous slider instead of the hard steps.',
+    detail: 'ST · -1 left to +1 right · mono FX only',
+  },
+  {
+    id: 'rec',
+    index: '',
+    title: 'REC ON EVERY STRIP',
+    tone: 'amber',
+    body: 'Any strip records to its own independent .wav, alone — exactly what its meter already shows: the channel picked for an input, the monitor for a bus or an output.',
+    detail: '~/Music/VirtMix/ · one file per strip',
   },
   {
     id: 'buses',
@@ -78,6 +102,9 @@ export const COMP_PARAMS: readonly FxParam[] = [
   { label: 'MAKE-UP', value: '+4.0 dB', pos: 0.33 },
 ];
 
+/** One gesture on an XY pad drives the 3-band EQ: tilt warm/bright on x, presence thin/full on y. */
+export const EQ_PAD = { x: 0.64, y: 0.42 } as const;
+
 export const MAPPER_BUSES = ['MUSIC', 'MEDIA', 'VOICE'] as const;
 
 export interface MapperRow {
@@ -105,8 +132,8 @@ export const LIMITS: readonly Limit[] = [
     body: 'A PipeWire link carries no volume of its own. A send is on or off; the level is the strip fader.',
   },
   {
-    title: 'NO SOUND POSITIONING',
-    body: 'Since the fader is the only level control, there is no pan or balance. The stereo image is fixed by the source. This is gonna change in the future.',
+    title: 'NO METER ON A BLUETOOTH MIC',
+    body: 'Measuring it would force the whole headset into mono 16 kHz HFP — listening quality would collapse just to draw a bar. The mic stays usable; it is the meter that is dropped.',
   },
   {
     title: 'TWO OUTPUTS SHARE ONE CLOCK',

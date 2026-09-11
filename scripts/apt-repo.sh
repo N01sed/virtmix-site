@@ -11,7 +11,7 @@
 # for when waiting a day is too long.
 #
 # Only the latest version is served. Pinning an older one (`apt install
-# virtmix=1.2.2`) is therefore not possible; older releases stay downloadable by
+# virtmix=1.3.0`) is therefore not possible; older releases stay downloadable by
 # hand from the application repository.
 #
 # Usage:  apt-repo.sh <publish root>      (e.g. dist)

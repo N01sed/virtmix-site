@@ -2,7 +2,7 @@ export const SITE = {
   name: 'VirtMix',
   url: 'https://n01sed.github.io/virtmix-site/',
   repo: 'https://github.com/N01sed/virtmix',
-  version: '1.2.2',
+  version: '1.3.0',
   license: 'MIT',
   engine: 'PIPEWIRE 48000 / 512',
 } as const;
