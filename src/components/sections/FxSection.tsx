@@ -1,5 +1,6 @@
-import { COMP_PARAMS, GATE_PARAMS } from '../../data/content';
+import { COMP_PARAMS, EQ_PAD, GATE_PARAMS } from '../../data/content';
 import { ParamSlider } from '../console/ParamSlider';
+import { XyPad } from '../console/XyPad';
 import { Reveal } from '../Reveal';
 
 export function FxSection() {
@@ -9,16 +10,17 @@ export function FxSection() {
         <Reveal className="split__text">
           <p className="eyebrow eyebrow--cyan">FX CHAIN</p>
           <h2 className="section-title" id="fx-title">
-            Gate, then compressor
+            Gate, compressor, EQ
           </h2>
           <p className="section-lede">
-            The gate cuts the silence, the compressor levels what is left — in that order, because
-            compressing first would lift the room noise you were trying to remove.
+            The gate cuts the silence, the compressor levels what is left, the EQ shapes the
+            tonality — in that order, because compressing first would lift the room noise you were
+            trying to remove. The EQ is driven by one gesture on an XY pad instead of three sliders.
           </p>
           <dl className="facts">
             <div>
               <dt>PLUGINS</dt>
-              <dd>LADSPA swh-plugins · gate_1410 → sc4m_1916</dd>
+              <dd>LADSPA swh-plugins · gate_1410 → sc4m_1916 → dj_eq_1901</dd>
             </div>
             <div>
               <dt>EDITING</dt>
@@ -38,7 +40,9 @@ export function FxSection() {
         <Reveal className="split__visual" step={1}>
           <p className="sr-only">
             The FX drawer, opened over a dimmed console: a noise gate with threshold, attack, hold
-            and decay, feeding a compressor with threshold, ratio, attack and make-up gain.
+            and decay, feeding a compressor with threshold, ratio, attack and make-up gain, feeding
+            a 3-band EQ set by dragging a dot on an XY pad — warm to bright on one axis, thin to
+            full on the other.
           </p>
           <div className="drawer" aria-hidden="true">
             <div className="drawer__dim" aria-hidden="true">
@@ -72,6 +76,24 @@ export function FxSection() {
                   {COMP_PARAMS.map((p) => (
                     <ParamSlider key={p.label} {...p} tone="var(--sig-cyan)" />
                   ))}
+                </div>
+
+                <div className="drawer__col">
+                  <div className="drawer__step">
+                    <span className="tag tag--amber">3 · EQ</span>
+                    <span className="drawer__state drawer__state--amber">ENABLED</span>
+                  </div>
+                  <div className="xypad__wrap">
+                    <div className="xypad__vaxis">
+                      <span>FULL</span>
+                      <span>THIN</span>
+                    </div>
+                    <XyPad x={EQ_PAD.x} y={EQ_PAD.y} tone="var(--sig-amber)" />
+                    <div className="xypad__axis">
+                      <span>WARM</span>
+                      <span>BRIGHT</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

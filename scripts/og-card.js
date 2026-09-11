@@ -80,7 +80,7 @@
   let lx = 72;
   for (const [label, colour] of [
     ['A1 – A5 OUTPUTS', GREEN],
-    ['B1 – B3 VIRTUAL MICS', CYAN],
+    ['B VIRTUAL MIC', CYAN],
     ['MIT · RUST', AMBER],
   ]) {
     x.fillStyle = colour;
@@ -95,7 +95,7 @@
   x.fillStyle = '#555';
   x.fillText('GITHUB.COM/N01SED/VIRTMIX', 72, H - 34);
   x.fillStyle = GREEN;
-  x.fillText('v1.2.2', W - 160, H - 34);
+  x.fillText('v1.3.0', W - 160, H - 34);
 
   console.log(canvas.toDataURL('image/png'));
 })();

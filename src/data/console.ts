@@ -16,7 +16,12 @@ export interface Strip {
   level: number | null;
   muted?: boolean;
   channel?: string;
+  /** Hard pan in a destination's stereo field — inputs only. */
+  pan?: 'L' | 'C' | 'R';
+  /** ST button: captures a real channel pair instead of one. Inputs with a true stereo source only. */
+  stereo?: boolean;
   fx?: 'on' | 'off';
+  rec?: 'on' | 'off';
   sendsA?: readonly SendState[];
   sendsB?: readonly SendState[];
   note?: readonly [string, string];
@@ -31,10 +36,13 @@ export const STRIPS: readonly Strip[] = [
     tone: 'green',
     group: 'sources',
     channel: 'CH 2',
+    pan: 'L',
+    stereo: false,
     fader: 0.22,
     value: '-3.5 dB',
     level: 0.66,
     fx: 'on',
+    rec: 'on',
     sendsA: ['on', 'off', 'empty', 'empty', 'empty'],
     sendsB: ['on'],
   },
@@ -47,6 +55,7 @@ export const STRIPS: readonly Strip[] = [
     fader: 0.38,
     value: '-12.0 dB',
     level: 0.42,
+    rec: 'off',
     sendsA: ['off', 'on', 'empty', 'empty', 'empty'],
     sendsB: ['off'],
   },
@@ -59,6 +68,7 @@ export const STRIPS: readonly Strip[] = [
     fader: 0.3,
     value: '-6.0 dB',
     level: 0.58,
+    rec: 'on',
     sendsA: ['on', 'on', 'empty', 'empty', 'empty'],
     sendsB: ['off'],
   },
@@ -72,6 +82,7 @@ export const STRIPS: readonly Strip[] = [
     value: '0.0 dB',
     level: 0,
     muted: true,
+    rec: 'off',
     sendsA: ['on', 'off', 'empty', 'empty', 'empty'],
     sendsB: ['off'],
   },
@@ -84,6 +95,7 @@ export const STRIPS: readonly Strip[] = [
     fader: 0.26,
     value: '-4.5 dB',
     level: 0.71,
+    rec: 'off',
     note: ['MASTER FADER', 'NO SENDS'],
   },
   {
@@ -97,6 +109,7 @@ export const STRIPS: readonly Strip[] = [
     value: '-2.0 dB',
     level: 0.52,
     fx: 'off',
+    rec: 'off',
     note: ['SEEN BY APPS AS', '« micro-virtuel »'],
   },
 ];
